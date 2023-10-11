@@ -7,8 +7,8 @@ from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
-from models.city from City
-from models.place from Place
+from models.city import City
+from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
@@ -29,6 +29,7 @@ def parse(arg):
         ret1 = [i.strip(",") for i in lexer]
         ret1.append(curly_braces.group())
         return ret1
+
 
 class ABNBCommand(cmd.Cmd):
     """Defines the AlxBnB command interpreter.
@@ -136,7 +137,7 @@ class ABNBCommand(cmd.Cmd):
         If no class is specified, displays all instantiated objects."""
         argl = parse(arg)
         if len(argl) > 0 and argl[0] not in ABNBCommand.__classes:
-            print("** class doen't exist **")
+            print("** class doesn't exist **")
         else:
             objl = []
             for obj in storage.all().values():
@@ -205,6 +206,7 @@ class ABNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
+
 
 if __name__ == "__main__":
     ABNBCommand().cmdloop()
