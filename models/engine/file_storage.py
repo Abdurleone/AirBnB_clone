@@ -26,7 +26,7 @@ class FileStorage:
     def new(self, obj):
         """Set in _objects to the JSON file __file_path."""
         ocname = obj.__class__.__name__
-        FileStorage.__object["{}.{}".format(ocname, obj.id)] = obj
+        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
 
     def save(self):
         """Serialize __objects to the JSNON file __file_path."""
@@ -45,4 +45,5 @@ class FileStorage:
                     del o["__class__"]
                     self.new(eval(cls_name)(**o))
         except FileNotFoundError:
+            FileStorage.__objects = {}
             return
