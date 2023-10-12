@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines the HBnB console."""
+"""Defines the HBNB console."""
 import cmd
 import re
 from shlex import split
@@ -17,28 +17,28 @@ def parse(arg):
     curly_braces = re.search(r"\{(.*?)}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
-        if brackets in None:
+        if brackets is None:
             return [i.strip(",") for i in split(arg)]
         else:
             lexer = split(arg[:brackets.span()[0]])
-            ret1 = [i.strip(",") for i in lexer]
-            ret1.append(brackets.group())
-            return ret1
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
     else:
         lexer = split(arg[:curly_braces.span()[0]])
-        ret1 = [i.strip(",") for i in lexer]
-        ret1.append(curly_braces.group())
-        return ret1
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the AlxBnB command interpreter.
+    """Defines the HBNB command interpreter.
 
     Attributes:
        prompt (str): The command prompt.
     """
 
-    prompt = "(abnb) "
+    prompt = "(hbnb) "
     __classes = {
         "BaseModel",
         "User",
@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         """Default behavior for cmd module when input is invalid"""
         argdict = {
             "all": self.do_all,
-            "show": self.do_now,
+            "show": self.do_show,
             "destroy": self.do_destroy,
             "count": self.do_count,
             "update": self.do_update
@@ -197,10 +197,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 obj.__dict__[argl[2]] = argl[3]
         elif type(eval(argl[2])) == dict:
-            obj = object["{}.{}".format(argl[0], argl[1])]
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
             for k, v in eval(argl[2]).items():
                 if (k in obj.__class__.__dict__.keys() and
-                    type(obj.__class__.__dict__[k]) in {str, int, float}):
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
                     valtype = type(obj.__class__.__dict__[k])
                     obj.__dict__[k] = valtype(v)
                 else:
