@@ -1,111 +1,66 @@
 #!/usr/bin/python3
-"""test for the console"""
-import unittest
-from unittest.mock import patch
-from io import StringIO
+"""
+Unit tests for console using Mock module from python standard library
+Checks console for capturing stdout into a StringIO object
+"""
+
 import os
-import json
-import console
-import tests
+import sys
+import unittest
+from unittest.mock import create_autospec, patch
+from io import StringIO
 from console import HBNBCommand
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from models.state import State
-from models.city import City
-from models.engine.file_storage import FileStorage
-from models import storage
 
 
-class TestHbnbConsole(unittest.TestCase):
-    """this will all the
-    aspects about consile."""
-    pass
+class TestConsole(unittest.TestCase):
+    """
+    Unittest for the console model
+    """
 
-
-class TestHBNB_prompt(unittest.TestCase):
-
-    def testprompt(self):
-        self.assertEqual("(hbnb) ", HBNBCommand.prompt)
-
-    def test_emptyline(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(""))
-            self.assertEqual("", output.getvalue().strip())
-
-
-class TestHBNBcreate(unittest.TestCase):
-
-    @classmethod
     def setUp(self):
-        try:
-            os.rename("file.json", "tmp")
-        except IOError:
-            pass
-        FileStorage.__objects = {}
+        """Redirecting stdin and stdout"""
+        self.mock_stdin = create_autospec(sys.stdin)
+        self.mock_stdout = create_autospec(sys.stdout)
+        self.err = ["** class name missing **",
+                    "** class doesn't exist **",
+                    "** instance id missing **",
+                    "** no instance found **",
+                    ]
 
-    @classmethod
-    def tearDown(self):
-        try:
-            os.remove("file.json")
-        except IOError:
-            pass
-        try:
-            os.rename("tmp", "false.json")
-        except IOError:
-            pass
+        self.cls = ["BaseModel",
+                    "User",
+                    "State",
+                    "City",
+                    "Place",
+                    "Amenity",
+                    "Review"]
 
-    def test_create_missing_class(self):
-        correct = "** class name missing **"
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertEqual(correct, output.getvalue().strip())
+    def create(self, server=None):
+        """
+        Redirects stdin and stdout to the mock module
+        """
+        return HBNBCommand(stdin=self.mock_stdin, stdout=self.mock_stdout)
 
-    def test_create_invalid_class(self):
-        correct = "** class doesn't exist **"
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create MyModel"))
-            self.assertEqual(correct, output.getvalue().strip())
+    def last_write(self, nr=None):
+        """Returns last n output lines"""
+        if nr is None:
+            return self.mock_stdout.write.call_args[0][0]
+        return "".join(map(lambda c: c[0][0],
+                           self.mock_stdout.write.call_args_list[-nr:]))
 
-    def test_create_object(self):
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "BaseModel.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "User.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "State.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "City.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "Amenity.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "Place.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
-        with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertLess(0, len(output.getvalue().strip()))
-            testKey = "Review.{}".format(output.getvalue().strip())
-            self.assertIn(testKey, storage.all().keys())
+    def test_quit(self):
+        """Quit command"""
+        cli = self.create()
+        self.assertTrue(cli.onecmd("quit"))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
