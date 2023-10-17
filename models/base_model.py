@@ -40,8 +40,8 @@ class BaseModel:
         the class name of the object.
         """
         rdict = self.__dict__.copy()
-        rdict["created_at"] = self.created_at.isformat()
-        rdict["updated_at"] = self.updated_at.isformat()
+        rdict["created_at"] = self.created_at.isoformat()
+        rdict["updated_at"] = self.updated_at.isoformat()
         rdict["__class__"] = self.__class__.__name__
         return rdict
 
