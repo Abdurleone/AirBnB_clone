@@ -24,8 +24,6 @@ class TestConsole(unittest.TestCase):
     """
     Unittest for the console model
     """
-    with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd("help show")
 
     def setUp(self):
         """Redirecting stdin and stdout"""
