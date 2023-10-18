@@ -111,12 +111,10 @@ class TestHBNBCommand_exit(unittest.TestCase):
     def test_quit_exits(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("quit"))
-            self.assertEqual(output)
 
     def test_EOF_exits(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
-            self.assertEqual(output)
 
 
 class TestHBNBCommand_create(unittest.TestCase):
