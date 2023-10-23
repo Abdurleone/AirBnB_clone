@@ -2,6 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    z-index: -1;
+}
+
+.places article{
+    display: flex;
+    flex-wrap: wrap;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 4px;
+    border: 1px solid #FF5A5F;
+    box-sizing: border-box;
 }
 
 .places h1{
@@ -11,15 +23,6 @@
     margin: 10px auto auto;
 }
 
-.places article{
-    width: 390px;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 4px;
-    border: 1px solid #FF5A5F;
-    box-sizing: border-box;
-}
-
 .places h2{
     font-size: 30px;
     margin: 0;
@@ -27,16 +30,6 @@
     text-align: center;
     flex-grow: 1;
 }
-
-article {
-    z-index: -1;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* ****************************** */
-/* article information */
-/* ****************************** */
 
 /* circle with price */
 .article_places_header {
@@ -107,8 +100,8 @@ article {
 /* more information */
 /************************/
 
-.places .amenities ul,
-.places .reviews ul {
+.places .amenities,
+.places .reviews {
     list-style-type: none;
     padding: 0;
 }
@@ -158,5 +151,4 @@ article {
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
-    display: inline-block;
 }
