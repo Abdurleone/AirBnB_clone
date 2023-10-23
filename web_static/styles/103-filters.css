@@ -69,9 +69,15 @@
         margin: auto 0 auto 30px;
     }
 
-    /*************************/
-    /* dropdown menu */
-    /*************************/
+    /* Focus for ARIA accessibility */
+    .locations:focus,
+    .amenities:focus {
+        background-color: antiquewhite;
+    }
+
+    article:focus {
+        background-color: antiquewhite;
+    }
 
     .popover {
         border-radius: 4px;
