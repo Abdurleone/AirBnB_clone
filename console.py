@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""Defines the HBNB console."""
+"""Defines the HBnB console."""
 import cmd
-
-
 import re
 from shlex import split
 from models import storage
@@ -16,7 +14,7 @@ from models.review import Review
 
 
 def parse(arg):
-    curly_braces = re.search(r"\{(.*?)}", arg)
+    curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
         if brackets is None:
@@ -37,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter.
 
     Attributes:
-       prompt (str): The command prompt.
+        prompt (str): The command prompt.
     """
 
     prompt = "(hbnb) "
@@ -81,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the programm."""
+        """EOF signal to exit the program."""
         print("")
         return True
 
@@ -117,8 +115,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """Usage: destroy <class> <id> or <class>.destroy(<id>)
-        Delete a class instance of a given id.
-        """
+        Delete a class instance of a given id."""
         argl = parse(arg)
         objdict = storage.all()
         if len(argl) == 0:
@@ -134,7 +131,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
-        """Usage: all or all <class> of <class>.all()
+        """Usage: all or all <class> or <class>.all()
         Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects."""
         argl = parse(arg)
@@ -143,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             objl = []
             for obj in storage.all().values():
-                if len(argl) > 0 and argl[0] == obj.__class__.name__:
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
                     objl.append(obj.__str__())
                 elif len(argl) == 0:
                     objl.append(obj.__str__())
@@ -155,17 +152,16 @@ class HBNBCommand(cmd.Cmd):
         argl = parse(arg)
         count = 0
         for obj in storage.all().values():
-            if argl[0] == obj.__class__.name__:
+            if argl[0] == obj.__class__.__name__:
                 count += 1
         print(count)
 
     def do_update(self, arg):
-        """Usage: update <class> <id> <attribute_name> ?<attribute_value> or
-        <class>.update(<id>, <attribute_name>, <attribu_value>) or
-        <class>.update(<id>, <dictionary>)
-         Update a class instance of a given id by adding or updating
-         a given attribute key/value pair or dictionary.
-        """
+        """Usage: update <class> <id> <attribute_name> <attribute_value> or
+       <class>.update(<id>, <attribute_name>, <attribute_value>) or
+       <class>.update(<id>, <dictionary>)
+        Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary."""
         argl = parse(arg)
         objdict = storage.all()
 

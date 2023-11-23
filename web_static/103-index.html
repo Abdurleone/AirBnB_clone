@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="uft-8">
+        <meta name="viewport" content="width-device-width, intitial-scaled=1.0">
+        <link rel="icon" href="images/icon.png" type="image/png">
+        <link rel="stylesheet" href="styles/102-common.css">
+        <link rel="stylesheet" href="styles/102-header.css">
+        <link rel="stylesheet" href="styles/102-footer.css">
+        <link rel="stylesheet" href="styles/102-filters.css">
+        <link rel="stylesheet" href="styles/102-places.css">
+        <title>AirBnb Clone</title>
+    </head>
+    <body>
+        <header>
+            <div class="mobile_nav">
+                <label for="main_check" class="main_nav_burguer">|||</label>
+                <input type="checkbox" id="main_check" name="main_check" class="main_nav_check">
+                <nav>
+                    <ul class="nav_bar_level1">
+                        <li>
+                            <label for="second_check"><span>States</span></label>
+                            <input type="checkbox" name="second_check" id="second_check">
+                            <ul>
+                                <li><span>Arizona</span></li>
+                                <li><span>California</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="third_check"><span>Amenities</span></label>
+                            <input type="checkbox" name="second_check" id="third_check">
+                            <ul>
+                                <li><span>Internet</span></li>
+                                <li><span>Tv</span></li>
+                                <li><span>WiFi</span></li>
+                                <li><span>Kitchen</span></li>
+                                <li><span>Iron</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav><!-- final del main_nav_bar -->
+            </div>
+        </header>
+        <div class="container">
+            <section class="filters">
+                <div class="locations">
+                    <h3>States</h3>
+                    <h4>California, Arizona..</h4>
+                    <ul class="popover">
+                        <li><h2>Arizona:</h2>
+                            <ul>
+                                <li>Page</li>
+                                <li>Page2</li>
+                            </ul>
+                        </li>
+                        <li><h2>Carlifonia:</h2>
+                            <ul>
+                                <li>San Francisco</li>
+                                <li>Los Altos</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="amenities">
+                    <h3>Amenities</h3>
+                    <h4>Internet, Kitchen...</h4>
+                    <ul class="popover">
+                        <li>Internet</li>
+                        <li>Tv</li>
+                        <li>Kitchen</li>
+                        <li>Iron</li>
+                    </ul>
+                </div>
+                <button type="button" name="button">Search</button>
+            </section><!-- end filter -->
+
+            <section class="places">
+            <h1>Places</h1>
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>My home</h2>
+                    <div class="price_by_night">$80</div>
+                </div>
+                <div class="information">
+                    <div class="max_guest">2 Guests</div>
+                    <div class="number_rooms">1 Bedroom</div>
+                    <div class="number_bathrooms">1 Bathroom</div>
+                </div><!-- end information -->
+                <div class="user">
+                    <p><b>Owner:</b> John Lennon</p>
+                </div><!--end user-->
+                <div class="description">
+                    <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                        It locates at the center of Shanghai and next to subway line 1,
+                        1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                    </p>
+                </div><!--end description -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>
+                            <div class="places_amenities_prt_friendly"></div>
+                            Pet friendly
+                        </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                        </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Tiny House</h2>
+                    <div class="price_by_night">$65</div>
+                </div>
+                <div class="information">
+                    <div class="max_guest">4 Guests</div>
+                    <div class="number_rooms">4 Bedrooms</div>
+                    <div class="number_bathrooms">1 Bathroom</div>
+                </div><!-- end information -->
+                <div class="user">
+                    <p><b>Owner:</b> Addrienne</p>
+                </div><!--end user-->
+                <div class="description">
+                    <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                        It locates at the center of Shanghai and next to subway line 1,
+                        1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                    </p>
+                </div><!--end description -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>
+                            <div class="places_amenities_prt_friendly"></div>
+                            Pet friendly
+                        </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                        </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Otaku rooms</h2>
+                    <div class="price_by_night">$79</div>
+                </div>
+                <div class="information">
+                    <div class="max_guest">2 Guests</div>
+                    <div class="number_rooms">1 Bedroom</div>
+                    <div class="number_bathrooms">1 Bathroom</div>
+                </div><!-- end information -->
+                <div class="user">
+                    <p><b>Owner:</b> John Lennon</p>
+                </div><!--end user-->
+                <div class="description">
+                    <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                        It locates at the center of Shanghai and next to subway line 1,
+                        1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                    </p>
+                </div><!--end description -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>
+                            <div class="places_amenities_prt_friendly"></div>
+                            Pet friendly
+                        </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                        </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Otaku rooms</h2>
+                    <div class="price_by_night">$79</div>
+                </div>
+                <div class="information">
+                    <div class="max_guest">2 Guests</div>
+                    <div class="number_rooms">1 Bedroom</div>
+                    <div class="number_bathrooms">1 Bathroom</div>
+                </div><!-- end information -->
+                <div class="user">
+                    <p><b>Owner:</b> John Lennon</p>
+                </div><!--end user-->
+                <div class="description">
+                    <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                        It locates at the center of Shanghai and next to subway line 1,
+                        1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                    </p>
+                </div><!--end description -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>
+                            <div class="places_amenities_prt_friendly"></div>
+                            Pet friendly
+                        </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                        </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Otaku rooms</h2>
+                    <div class="price_by_night">$79</div>
+                </div>
+                <div class="information">
+                    <div class="max_guest">2 Guests</div>
+                    <div class="number_rooms">1 Bedroom</div>
+                    <div class="number_bathrooms">1 Bathroom</div>
+                </div><!-- end information -->
+                <div class="user">
+                    <p><b>Owner:</b> John Lennon</p>
+                </div><!--end user-->
+                <div class="description">
+                    <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                        It locates at the center of Shanghai and next to subway line 1,
+                        1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                    </p>
+                </div><!--end description -->
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>
+                            <div class="places_amenities_prt_friendly"></div>
+                            Pet friendly
+                        </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                        </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Otaku rooms</h2>
+                    <div class="price_by_night">$79</div>
+                </div>
+            <div class="information">
+                <div class="max_guest">8 Guests</div>
+                <div class="number_rooms">1 Bedroom</div>
+                <div class="number_bathrooms">1 Bathroom</div>
+            </div><!-- end information -->
+            <div class="user">
+                <p><b>Owner:</b> John Lennon</p>
+            </div><!--end user-->
+            <div class="description">
+                <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                    It locates at the center of Shanghai and next to subway line 1,
+                    1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                </p>
+            </div><!--end description -->
+            <div class="amenities">
+                <h2>Amenities</h2>
+                <ul>
+                    <li>
+                        <div class="places_amenities_prt_friendly"></div>
+                        Pet friendly
+                    </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                    </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            <article><!-- My home -->
+                <div class="article_places_header">
+                    <h2>Donkey Kong County</h2>
+                    <div class="price_by_night">$80</div>
+                </div>
+            <div class="information">
+                <div class="max_guest">8 Guests</div>
+                <div class="number_rooms">1 Bedroom</div>
+                <div class="number_bathrooms">1 Bathroom</div>
+            </div><!-- end information -->
+            <div class="user">
+                <p><b>Owner:</b> John Lennon</p>
+            </div><!--end user-->
+            <div class="description">
+                <p> This is a lovely 1 bathroom apartament that can accommodate 2 people.
+                    It locates at the center of Shanghai and next to subway line 1,
+                    1 stop to People Square, 2 stops to Bund, 3 stops to Jungan Temle.
+                </p>
+            </div><!--end description -->
+            <div class="amenities">
+                <h2>Amenities</h2>
+                <ul>
+                    <li>
+                        <div class="places_amenities_prt_friendly"></div>
+                        Pet friendly
+                    </li>
+                        <li>
+                            <div class="places_amenities_pet_friendly"></div>
+                            Tv
+                    </li>
+                        <li>
+                            <div class="places_amenities_wifi"></div>
+                            WiFi
+                        </li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>2 Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th August 2022</h3>
+                            <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
+                        </li>
+                        <li>
+                            <h3>From Connor 4th August 2022</h3>
+                            <p>Highly recommended</p>
+                        </li>
+                    </ul>
+                </div>
+            </article><!-- end My home-->
+
+            </section><!-- end section -->
+        </div>
+        <footer aria-label="Footer brand information">
+            <p>Best School</p>
+        </footer>
+    </body>
+</html>
